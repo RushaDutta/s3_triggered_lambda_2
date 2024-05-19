@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  localstack: 
+    image: localstack/localstack:latest
+    environment: 
+      - DEFAULT_REGION=ap-northeast-2
+      - EDGE_PORT=4566
+      - SERVICES=s3,lambda,logs,iam,sns,sqs,ses,cloudwatch
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - LAMBDA_EXECUTOR=docker
+      - SMTP_HOST=localhost
+      - SMTP_PORT=1025
+      - AWS_SECRET_ACCESS_KEY=test
+      - AWS_ACCESS_KEY_ID=test
+    ports: 
+      - '4566-4583:4566-4583'
+    volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
