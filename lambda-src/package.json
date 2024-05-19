@@ -1,0 +1,12 @@
+{
+  "main": "index.js",
+  "dependencies": {
+    "aws-sdk": "^2.1066.0",
+    "gm": "^1.25.0",
+    "nodemailer": "^6.9.13",
+    "sharp": "^0.33.4"
+  },
+  "optionalDependencies": {
+    "@img/sharp-win32-x64": "^0.33.4"
+  }
+}
